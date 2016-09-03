@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace SudokuSolver {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SudokuSolverView.xaml
     /// </summary>
     public partial class MainWindow : Window {
         public MainWindow() {

@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Field.cs" />
+    <Compile Include="BoardModel\Field.cs" />
     <Compile Include="SudokuSolverModel.cs" />
     <Compile Include="SudokuSolverViewModel.cs" />
     <Page Include="SudokuSolverView.xaml">

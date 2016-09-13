@@ -12,5 +12,6 @@ namespace SudokuSolver.BoardModel {
                 new FieldEntity(), new FieldEntity(), new FieldEntity(),
                 new FieldEntity(), new FieldEntity(), new FieldEntity(),
                 new FieldEntity(), new FieldEntity(), new FieldEntity() });
+        public PossibleNumbersEntity PossibleNumbers { get; } = new PossibleNumbersEntity();
     }
 }

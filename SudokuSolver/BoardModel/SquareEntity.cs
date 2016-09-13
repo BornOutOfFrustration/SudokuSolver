@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SudokuSolver.BoardModel {
-    class FieldEntity {
+    class SquareEntity : NineSetEntity{
         public PossibleNumbersEntity PossibleNumbers { get; } = new PossibleNumbersEntity();
     }
 }

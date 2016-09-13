@@ -59,6 +59,7 @@
     <Compile Include="BoardModel\FieldEntity.cs" />
     <Compile Include="BoardModel\NineSetEntity.cs" />
     <Compile Include="BoardModel\PossibleNumbersEntity.cs" />
+    <Compile Include="Interactors\SetupNewBoardInteractor.cs" />
     <Compile Include="SudokuSolverModel.cs" />
     <Compile Include="SudokuSolverViewModel.cs" />
     <Page Include="SudokuSolverView.xaml">
@@ -101,6 +102,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

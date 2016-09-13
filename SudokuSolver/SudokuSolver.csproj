@@ -55,11 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="BoardModel\BoardEntity.cs" />
-    <Compile Include="BoardModel\FieldEntity.cs" />
-    <Compile Include="BoardModel\NineSetEntity.cs" />
-    <Compile Include="BoardModel\PossibleNumbersEntity.cs" />
-    <Compile Include="Interactors\SetupNewBoardInteractor.cs" />
+    <Compile Include="SudokuBoard\BoardEntity.cs" />
+    <Compile Include="SudokuBoard\FieldEntity.cs" />
+    <Compile Include="SudokuBoard\NineSetEntity.cs" />
+    <Compile Include="SudokuBoard\PossibleNumbersEntity.cs" />
+    <Compile Include="SudokeSolverInteractors\SetupNewBoardInteractor.cs" />
+    <Compile Include="SudokuBusinessRules\NumberOnlyExistsOnceRule.cs" />
     <Compile Include="SudokuSolverModel.cs" />
     <Compile Include="SudokuSolverViewModel.cs" />
     <Page Include="SudokuSolverView.xaml">

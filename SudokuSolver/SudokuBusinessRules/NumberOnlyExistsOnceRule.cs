@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuSolver.Interactors {
-    class SetupNewBoardInteractor {
+namespace SudokuSolver.SudokuBusinessRules
+{
+    class NumberOnlyExistsOnceRule
+    {
     }
 }

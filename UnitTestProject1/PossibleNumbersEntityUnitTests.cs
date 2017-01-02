@@ -27,7 +27,16 @@ namespace UnitTestProject1 {
             SudokuSolver.SudokuBoard.NineSetEntity column8 = board.Columns[7];
             SudokuSolver.SudokuBoard.NineSetEntity column9 = board.Columns[8];
 
-            SudokuSolver.SudokuBoard.NineSetEntity region1 = board.Region[1];
+            SudokuSolver.SudokuBoard.NineSetEntity region1 = board.Regions[0];
+            SudokuSolver.SudokuBoard.NineSetEntity region2 = board.Regions[1];
+            SudokuSolver.SudokuBoard.NineSetEntity region3 = board.Regions[2];
+            SudokuSolver.SudokuBoard.NineSetEntity region4 = board.Regions[3];
+            SudokuSolver.SudokuBoard.NineSetEntity region5 = board.Regions[4];
+            SudokuSolver.SudokuBoard.NineSetEntity region6 = board.Regions[5];
+            SudokuSolver.SudokuBoard.NineSetEntity region7 = board.Regions[6];
+            SudokuSolver.SudokuBoard.NineSetEntity region8 = board.Regions[7];
+            SudokuSolver.SudokuBoard.NineSetEntity region9 = board.Regions[8];
+            
         }
 
         [TestMethod]
@@ -58,6 +67,19 @@ namespace UnitTestProject1 {
             SudokuSolver.SudokuBoard.NineSetEntity row = board.Columns[9];
         }
 
+        [TestMethod]
+        [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
+        public void Test_SudokuBoardRegion_LowerBoundaries_ShouldThrowError() {
+            SudokuSolver.SudokuBoard.BoardEntity board = new SudokuSolver.SudokuBoard.BoardEntity();
+            SudokuSolver.SudokuBoard.NineSetEntity region = board.Regions[-1];
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
+        public void Test_SudokuBoardRegion_UpperBoundaries_ShouldThrowError() {
+            SudokuSolver.SudokuBoard.BoardEntity board = new SudokuSolver.SudokuBoard.BoardEntity();
+            SudokuSolver.SudokuBoard.NineSetEntity region = board.Regions[9];
+        }
         //[TestMethod]
         //[ExpectedException(typeof(Exception))]
         //public void Test_SudokuBoardRows_SwitchRowsInBoard_ShouldThrowError() {

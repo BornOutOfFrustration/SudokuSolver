@@ -36,6 +36,10 @@ namespace UnitTestProject1 {
             SudokuSolver.SudokuBoard.NineSetEntity region7 = board.Regions[6];
             SudokuSolver.SudokuBoard.NineSetEntity region8 = board.Regions[7];
             SudokuSolver.SudokuBoard.NineSetEntity region9 = board.Regions[8];
+
+            SudokuSolver.SudokuBoard.FieldEntity field = row1.Fields[0];
+
+
             
         }
 

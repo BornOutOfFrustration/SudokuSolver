@@ -26,6 +26,8 @@ namespace UnitTestProject1 {
             SudokuSolver.SudokuBoard.NineSetEntity column7 = board.Columns[6];
             SudokuSolver.SudokuBoard.NineSetEntity column8 = board.Columns[7];
             SudokuSolver.SudokuBoard.NineSetEntity column9 = board.Columns[8];
+
+            SudokuSolver.SudokuBoard.NineSetEntity region1 = board.Region[1];
         }
 
         [TestMethod]

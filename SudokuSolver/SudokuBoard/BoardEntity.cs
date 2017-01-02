@@ -35,10 +35,4 @@ namespace SudokuSolver.SudokuBoard {
         //                new NineSetEntity(), new NineSetEntity(), new NineSetEntity(),
         //                new NineSetEntity(), new NineSetEntity(), new NineSetEntity() });
     }
-
-    public class RowEntity {
-
-    }
-    public class ColumnEntity {
-    }
 }

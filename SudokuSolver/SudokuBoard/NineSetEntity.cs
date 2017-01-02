@@ -5,8 +5,8 @@
 //using System.Threading.Tasks;
 //using System.Collections.ObjectModel;
 
-//namespace SudokuSolver.SudokuBoard {
-//    class NineSetEntity {
+namespace SudokuSolver.SudokuBoard {
+    public class NineSetEntity {
 //        public ReadOnlyCollection<FieldEntity> Fields { get; } = new ReadOnlyCollection<FieldEntity>(
 //            new List<FieldEntity>() {
 //                new FieldEntity(), new FieldEntity(), new FieldEntity(),
@@ -29,5 +29,5 @@
 //                return uniqueNumbers.AsEnumerable<int>();
 //            }
 //        }
-//    }
-//}
+    }
+}

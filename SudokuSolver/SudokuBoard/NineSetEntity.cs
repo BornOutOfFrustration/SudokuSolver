@@ -1,13 +1,18 @@
 ﻿//using System;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
-//using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
 
 namespace SudokuSolver.SudokuBoard {
     public class NineSetEntity {
-//        public ReadOnlyCollection<FieldEntity> Fields { get; } = new ReadOnlyCollection<FieldEntity>(
+        public NineSetEntity(FieldEntity[] fields) {
+            List<FieldEntity> list = new List<FieldEntity>();
+            list.AddRange(fields);
+            Fields = new ReadOnlyCollection<FieldEntity>(list);
+        }
+        public ReadOnlyCollection<FieldEntity> Fields { get; } // = new ReadOnlyCollection<FieldEntity>(
 //            new List<FieldEntity>() {
 //                new FieldEntity(), new FieldEntity(), new FieldEntity(),
 //                new FieldEntity(), new FieldEntity(), new FieldEntity(),

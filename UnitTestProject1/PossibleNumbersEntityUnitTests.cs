@@ -7,40 +7,102 @@ namespace UnitTestProject1 {
         [TestMethod]
         public void Test_Create_Sudoku_Board() {
             SudokuSolver.SudokuBoard.BoardEntity board = new SudokuSolver.SudokuBoard.BoardEntity();
-            SudokuSolver.SudokuBoard.NineSetEntity row1 = board.Rows[0];
-            SudokuSolver.SudokuBoard.NineSetEntity row2 = board.Rows[1];
-            SudokuSolver.SudokuBoard.NineSetEntity row3 = board.Rows[2];
-            SudokuSolver.SudokuBoard.NineSetEntity row4 = board.Rows[3];
-            SudokuSolver.SudokuBoard.NineSetEntity row5 = board.Rows[4];
-            SudokuSolver.SudokuBoard.NineSetEntity row6 = board.Rows[5];
-            SudokuSolver.SudokuBoard.NineSetEntity row7 = board.Rows[6];
-            SudokuSolver.SudokuBoard.NineSetEntity row8 = board.Rows[7];
-            SudokuSolver.SudokuBoard.NineSetEntity row9 = board.Rows[8];
+        }
 
-            SudokuSolver.SudokuBoard.NineSetEntity column1 = board.Columns[0];
-            SudokuSolver.SudokuBoard.NineSetEntity column2 = board.Columns[1];
-            SudokuSolver.SudokuBoard.NineSetEntity column3 = board.Columns[2];
-            SudokuSolver.SudokuBoard.NineSetEntity column4 = board.Columns[3];
-            SudokuSolver.SudokuBoard.NineSetEntity column5 = board.Columns[4];
-            SudokuSolver.SudokuBoard.NineSetEntity column6 = board.Columns[5];
-            SudokuSolver.SudokuBoard.NineSetEntity column7 = board.Columns[6];
-            SudokuSolver.SudokuBoard.NineSetEntity column8 = board.Columns[7];
-            SudokuSolver.SudokuBoard.NineSetEntity column9 = board.Columns[8];
+        [TestMethod]
+        public void Test_SudokuBoard_Check_Sets() {
+            // Arrange
+            var board = new SudokuSolver.SudokuBoard.BoardEntity();
 
-            SudokuSolver.SudokuBoard.NineSetEntity region1 = board.Regions[0];
-            SudokuSolver.SudokuBoard.NineSetEntity region2 = board.Regions[1];
-            SudokuSolver.SudokuBoard.NineSetEntity region3 = board.Regions[2];
-            SudokuSolver.SudokuBoard.NineSetEntity region4 = board.Regions[3];
-            SudokuSolver.SudokuBoard.NineSetEntity region5 = board.Regions[4];
-            SudokuSolver.SudokuBoard.NineSetEntity region6 = board.Regions[5];
-            SudokuSolver.SudokuBoard.NineSetEntity region7 = board.Regions[6];
-            SudokuSolver.SudokuBoard.NineSetEntity region8 = board.Regions[7];
-            SudokuSolver.SudokuBoard.NineSetEntity region9 = board.Regions[8];
+            for (int i = 0; i < 9; i++) {
+                // Act (Assert is an exception if not created.
+                var row = board.Rows[i];
+                var col = board.Columns[i];
+                var reg = board.Regions[i];
 
-            SudokuSolver.SudokuBoard.FieldEntity field = row1.Fields[0];
+                // Assert
+                Assert.IsInstanceOfType(row, typeof(SudokuSolver.SudokuBoard.NineSetEntity));
+                Assert.IsInstanceOfType(col, typeof(SudokuSolver.SudokuBoard.NineSetEntity));
+                Assert.IsInstanceOfType(reg, typeof(SudokuSolver.SudokuBoard.NineSetEntity));
+            }
+        }
 
+        [TestMethod]
+        public void Test_SudokuBoard_AllFields_AreUnique() {
+            var board = new SudokuSolver.SudokuBoard.BoardEntity();
 
-            
+            // Fields [0..9] in row 0 must be the same as fields[0] in col [0..9]
+            // Fields [0..9] in row 1 must be the same as fields[1] in col [0..9]
+            // ...
+            // Fields [0..9] in row 8 must be the same as fields[8] in col [0..9]
+
+            for (int rowIndex1 = 0; rowIndex1 < 9; rowIndex1++) {
+                for (int fieldIndex1 = 0; fieldIndex1 < 9; fieldIndex1++) {
+                    var field1 = board.Rows[rowIndex1].Fields[fieldIndex1];
+                    for (int rowIndex2 = 0; rowIndex2 < 9; rowIndex2++) {
+                        for (int fieldIndex2 = 0; fieldIndex2 < 9; fieldIndex2++) {
+                            if (rowIndex1 == rowIndex2 && fieldIndex1 == fieldIndex2) {
+                                continue;
+                            }
+                            var field2 = board.Rows[rowIndex2].Fields[fieldIndex2];
+                            Assert.AreNotSame(field1, field2);
+                        }
+                    }
+                }
+            }
+        }
+
+        [TestMethod]
+        public void Test_SudokuBoard_FieldsInRowsCols_AreSame() {
+            var board = new SudokuSolver.SudokuBoard.BoardEntity();
+
+            // Fields [0..9] in row 0 must be the same as fields[0] in col [0..9]
+            // Fields [0..9] in row 1 must be the same as fields[1] in col [0..9]
+            // ...
+            // Fields [0..9] in row 8 must be the same as fields[8] in col [0..9]
+
+            for (int index1 = 0; index1 < 9; index1++) {
+                for (int index2 = 0; index2 < 9; index2++) {
+                    var fieldA = board.Rows[index1].Fields[index2];
+                    var fieldB = board.Columns[index2].Fields[index1];
+                    Assert.AreSame(fieldA, fieldB);
+                }
+            }
+        }
+        [TestMethod]
+        public void Test_SudokuBoard_FieldsInRowsRegions_AreSame() {
+            var board = new SudokuSolver.SudokuBoard.BoardEntity();
+            // Field 0, 1, 2 in region 0 must be the same as field 0, 1, 2 in row 0
+            // Field 0, 1, 2 in region 1 must be the same as field 3, 4, 5 in row 0
+            // Field 0, 1, 2 in region 2 must be the same as field 6, 7, 8 in row 0
+
+            // Field 3, 4, 5 in region 0 must be the same as field 0, 1, 2 in row 1
+            // Field 3, 4, 5 in region 1 must be the same as field 3, 4, 5 in row 1
+            // Field 3, 4, 5 in region 2 must be the same as field 6, 7, 8 in row 1
+
+            // Field 6, 7, 8 in region 0 must be the same as field 0, 1, 2 in row 2
+            // Field 6, 7, 8 in region 1 must be the same as field 3, 4, 5 in row 2
+            // Field 6, 7, 8 in region 2 must be the same as field 6, 7, 8 in row 2
+
+            // Field 0, 1, 2 in region 3 must be the same as field 0, 1, 2 in row 3
+            // Field 0, 1, 2 in region 4 must be the same as field 3, 4, 5 in row 3
+            // Field 0, 1, 2 in region 5 must be the same as field 6, 7, 8 in row 3
+
+            // Field 3, 4, 5 in region 3 must be the same as field 0, 1, 2 in row 4
+            // Field 3, 4, 5 in region 4 must be the same as field 3, 4, 5 in row 4
+            // Field 3, 4, 5 in region 5 must be the same as field 6, 7, 8 in row 4
+
+            // Field 6, 7, 8 in region 3 must be the same as field 0, 1, 2 in row 5
+            // Field 6, 7, 8 in region 4 must be the same as field 3, 4, 5 in row 5
+            // Field 6, 7, 8 in region 5 must be the same as field 6, 7, 8 in row 5
+            // etc.
+            for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
+                for (int regionIndex = 0; regionIndex < 9; regionIndex++) {
+                    // Row 0, Region 0: field 0, 1, 2 == field 0, 1, 2
+                    // Row 0, Region 1: field 3, 4, 5 == field 0, 1, 2
+                }
+            }
+
         }
 
         [TestMethod]

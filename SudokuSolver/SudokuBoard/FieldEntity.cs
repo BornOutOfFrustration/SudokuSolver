@@ -4,8 +4,8 @@
 //using System.Text;
 //using System.Threading.Tasks;
 
-//namespace SudokuSolver.SudokuBoard {
-//    public class FieldEntity {
+namespace SudokuSolver.SudokuBoard {
+    public class FieldEntity {
 //        public List<int> PossibleNumbers { get; } = new PossibleNumbersEntity().Numbers;
-//    }
-//}
+    }
+}

@@ -97,12 +97,52 @@ namespace UnitTestProject1 {
             // Field 6, 7, 8 in region 5 must be the same as field 6, 7, 8 in row 5
             // etc.
             for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
-                for (int regionIndex = 0; regionIndex < 9; regionIndex++) {
-                    // Row 0, Region 0: field 0, 1, 2 == field 0, 1, 2
-                    // Row 0, Region 1: field 3, 4, 5 == field 0, 1, 2
+                int regionIndexBase = (rowIndex / 3) * 3; // 0, 0, 0, 3, 3, 3, 6, 6, 6
+
+                for (int regionIndex = regionIndexBase; regionIndex < regionIndexBase + 3; regionIndex++) {
+                    // region 0, 3, 6 : 0, 1, 2
+                    // region 1, 4, 7 : 3, 4, 5
+                    // region 2, 5, 8 : 6, 7, 8
+                    int rowFieldIndex1;
+                    int rowFieldIndex2;
+                    int rowFieldIndex3;
+                    if (regionIndex == 0 || regionIndex == 3 || regionIndex == 6) {
+                        rowFieldIndex1 = 0;
+                        rowFieldIndex2 = 1;
+                        rowFieldIndex3 = 2;
+                    } else if (regionIndex == 1 || regionIndex == 4 || regionIndex == 7) {
+                        rowFieldIndex1 = 3;
+                        rowFieldIndex2 = 4;
+                        rowFieldIndex3 = 5;
+                    } else {
+                        rowFieldIndex1 = 6;
+                        rowFieldIndex2 = 7;
+                        rowFieldIndex3 = 8;
+                    }
+
+                    int regionFieldIndex1;
+                    int regionFieldIndex2;
+                    int regionFieldIndex3;
+                    if (rowIndex == 0 || rowIndex == 3 || rowIndex == 6) {
+                        regionFieldIndex1 = 0;
+                        regionFieldIndex2 = 1;
+                        regionFieldIndex3 = 2;
+                    } else if (rowIndex == 1 || rowIndex == 4 || rowIndex == 7) {
+                        regionFieldIndex1 = 3;
+                        regionFieldIndex2 = 4;
+                        regionFieldIndex3 = 5;
+                    } else {
+                        regionFieldIndex1 = 6;
+                        regionFieldIndex2 = 7;
+                        regionFieldIndex3 = 8;
+                    }
+
+
+                    Assert.AreSame(board.Rows[rowIndex].Fields[rowFieldIndex1], board.Regions[regionIndex].Fields[regionFieldIndex1]);
+                    Assert.AreSame(board.Rows[rowIndex].Fields[rowFieldIndex2], board.Regions[regionIndex].Fields[regionFieldIndex2]);
+                    Assert.AreSame(board.Rows[rowIndex].Fields[rowFieldIndex3], board.Regions[regionIndex].Fields[regionFieldIndex3]);
                 }
             }
-
         }
 
         [TestMethod]

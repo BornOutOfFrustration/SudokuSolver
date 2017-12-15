@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardUnitTest", "UnitTestProject1\BoardUnitTest.csproj", "{B8E90448-41F5-451C-8E20-555A95142118}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSudokuViewer", "WpfSudok
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SudokuSolver", "SudokuSolver\SudokuSolver.csproj", "{EE26AE38-6B60-4AD6-8FF2-ED16817962C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardCodedUITest", "BoardCodedUITest\BoardCodedUITest.csproj", "{00B3FA0F-38D8-447B-AF90-FD3296997355}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGuiTest", "BoardGuiTest\BoardGuiTest.csproj", "{C2A8D3CB-7653-4539-9F00-A6F1E647324D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +29,15 @@ Global
 		{EE26AE38-6B60-4AD6-8FF2-ED16817962C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE26AE38-6B60-4AD6-8FF2-ED16817962C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE26AE38-6B60-4AD6-8FF2-ED16817962C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00B3FA0F-38D8-447B-AF90-FD3296997355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00B3FA0F-38D8-447B-AF90-FD3296997355}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00B3FA0F-38D8-447B-AF90-FD3296997355}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00B3FA0F-38D8-447B-AF90-FD3296997355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2A8D3CB-7653-4539-9F00-A6F1E647324D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A8D3CB-7653-4539-9F00-A6F1E647324D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2A8D3CB-7653-4539-9F00-A6F1E647324D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A8D3CB-7653-4539-9F00-A6F1E647324D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08B68434-58FF-4E04-A72C-19FAC11E7AAA}
 	EndGlobalSection
 EndGlobal
